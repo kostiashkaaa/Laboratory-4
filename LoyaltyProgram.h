@@ -10,24 +10,19 @@ protected:
     double discountPercent;
     
 public:
-    // Конструкторы
     LoyaltyProgram();
     LoyaltyProgram(const std::string& status, double discount);
     
-    // Виртуальный деструктор
     virtual ~LoyaltyProgram();
     
-    // Геттеры и сеттеры
     std::string getVIPStatus() const;
     double getDiscountPercent() const;
     
     void setVIPStatus(const std::string& status);
     void setDiscountPercent(double discount);
     
-    // Применение скидки к цене
     double applyDiscount(double price) const;
     
-    // Отображение информации о программе лояльности
     void displayLoyaltyInfo() const;
 };
 
