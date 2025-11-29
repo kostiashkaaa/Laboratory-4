@@ -1,4 +1,3 @@
-// addclientdialog.cpp
 #include "addclientdialog.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
