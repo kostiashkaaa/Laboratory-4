@@ -1,6 +1,3 @@
-// mainwindow.h
-// Главное окно приложения АТС с вкладками и панелью инструментов
-
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -9,7 +6,7 @@
 #include <QTabWidget>
 #include <QPushButton>
 #include <QLabel>
-#include <QToolBar> // <--- Добавлен заголовочный файл для панели инструментов
+#include <QToolBar>
 #include "DataManager.h"
 
 QT_BEGIN_NAMESPACE
@@ -81,11 +78,11 @@ private:
     void setupVIPClientsTab();
     void setupCallsTab();
     void setupMenuBar();
-    void setupToolBar(); // <--- Новый метод для настройки панели кнопок
+    void setupToolBar();
 
     // Вспомогательные методы
     void showMessage(const QString& title, const QString& message);
     void showError(const QString& message);
 };
 
-#endif // MAINWINDOW_H
+#endif
