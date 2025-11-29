@@ -8,9 +8,7 @@ DataManager::DataManager() : dataFilePath("atc_data.csv") {}
 
 DataManager::~DataManager() {}
 
-// ============================================
 // УПРАВЛЕНИЕ ТАРИФАМИ
-// ============================================
 
 void DataManager::addTariff(const Tariff& tariff) {
     tariffs.push_back(tariff);
@@ -41,9 +39,7 @@ Tariff* DataManager::findTariffByCity(const std::string& city) {
     return nullptr;
 }
 
-// ============================================
 // УПРАВЛЕНИЕ КЛИЕНТАМИ
-// ============================================
 
 void DataManager::addClient(const Client& client) {
     clients.push_back(client);
@@ -65,7 +61,6 @@ const std::vector<Client>& DataManager::getClients() const {
     return clients;
 }
 
-// НОВАЯ ФУНКЦИЯ ПРОВЕРКИ
 bool DataManager::clientExists(const std::string& name) const {
     for (const auto& client : clients) {
         if (client.getName() == name) return true;
@@ -76,9 +71,7 @@ bool DataManager::clientExists(const std::string& name) const {
     return false;
 }
 
-// ============================================
 // УПРАВЛЕНИЕ VIP-КЛИЕНТАМИ
-// ============================================
 
 void DataManager::addVIPClient(const VIPClient& client) {
     vipClients.push_back(client);
@@ -100,18 +93,14 @@ const std::vector<VIPClient>& DataManager::getVIPClients() const {
     return vipClients;
 }
 
-// ============================================
 // УПРАВЛЕНИЕ ЗВОНКАМИ
-// ============================================
 
-// ОБНОВЛЕННАЯ ФУНКЦИЯ С ПРОВЕРКОЙ
 bool DataManager::addCall(const Call& call) {
-    // Защита: проверяем, существует ли клиент
     if (!clientExists(call.getCallerName())) {
-        return false; // Клиент не найден, отказ
+        return false;
     }
     calls.push_back(call);
-    return true; // Успех
+    return true;
 }
 
 void DataManager::removeCall(int index) {
@@ -124,9 +113,7 @@ const std::vector<Call>& DataManager::getCalls() const {
     return calls;
 }
 
-// ============================================
 // СТАТИСТИКА
-// ============================================
 
 double DataManager::calculateClientTotalCost(const std::string& clientName) const {
     double total = 0.0;
@@ -156,9 +143,7 @@ double DataManager::calculateTotalRevenue() const {
     return total;
 }
 
-// ============================================
 // СОРТИРОВКА
-// ============================================
 
 void DataManager::sortTariffsByPrice(bool ascending) {
     if (ascending) {
@@ -293,14 +278,12 @@ bool DataManager::loadFromFile(const std::string& filename) {
             std::string manager = tokens[4];
             vipClients.push_back(VIPClient(name, phone, balance, discount, manager));
         }
-        // ПРОВЕРКА ПРИ ЗАГРУЗКЕ ЗВОНКОВ
         else if (currentSection == "[CALLS]" && tokens.size() >= 4) {
             std::string clientName = tokens[0];
             std::string city = tokens[1];
             int duration = std::stoi(tokens[2]);
             double cost = std::stod(tokens[3]);
 
-            // ЗАЩИТА: Добавляем звонок ТОЛЬКО если клиент существует в уже загруженной базе
             if (clientExists(clientName)) {
                 calls.push_back(Call(clientName, city, duration, cost));
             }
