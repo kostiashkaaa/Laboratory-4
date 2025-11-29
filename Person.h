@@ -1,4 +1,3 @@
-// Person.h
 #ifndef PERSON_H
 #define PERSON_H
 
@@ -12,18 +11,17 @@ protected:
 
 public:
     Person();
-    Person(const std::string& name, const std::string& phoneNumber); // <-- ИЗМЕНЕНО
+    Person(const std::string& name, const std::string& phoneNumber);
 
     virtual ~Person();
 
     std::string getName() const;
     void setName(const std::string& name);
 
-    std::string getPhoneNumber() const; // <-- ДОБАВЛЕНО
-    void setPhoneNumber(const std::string& phone); // <-- ДОБАВЛЕНО
+    std::string getPhoneNumber() const;
+    void setPhoneNumber(const std::string& phone);
 
-    // Имя "displayInfo" изменено на "display", чтобы override работал
-    virtual void display() const; // <-- ИЗМЕНЕНО ИМЯ
+    virtual void display() const;
 };
 
-#endif // PERSON_H
+#endif
