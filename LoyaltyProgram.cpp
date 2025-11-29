@@ -4,23 +4,18 @@
 
 using namespace std;
 
-// Конструктор по умолчанию
 LoyaltyProgram::LoyaltyProgram() 
     : Person(), vipStatus("Обычный"), discountPercent(0.0) {}
 
-// Параметризованный конструктор
 LoyaltyProgram::LoyaltyProgram(const string& status, double discount)
     : Person(), vipStatus(status), discountPercent(discount) {
     
-    // Валидация процента скидки
     if (discountPercent < 0) discountPercent = 0;
     if (discountPercent > 50) discountPercent = 50;
 }
 
-// Деструктор
 LoyaltyProgram::~LoyaltyProgram() {}
 
-// Геттеры
 string LoyaltyProgram::getVIPStatus() const {
     return vipStatus;
 }
@@ -29,7 +24,6 @@ double LoyaltyProgram::getDiscountPercent() const {
     return discountPercent;
 }
 
-// Сеттеры
 void LoyaltyProgram::setVIPStatus(const string& status) {
     this->vipStatus = status;
 }
