@@ -1,6 +1,3 @@
-// addvipclientdialog.h
-// Диалоговое окно для добавления/редактирования VIP-клиента
-
 #ifndef ADDVIPCLIENTDIALOG_H
 #define ADDVIPCLIENTDIALOG_H
 
@@ -36,4 +33,4 @@ private:
     void validateAndAccept();
 };
 
-#endif // ADDVIPCLIENTDIALOG_H
+#endif
