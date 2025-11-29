@@ -1,4 +1,3 @@
-// addvipclientdialog.cpp
 #include "addvipclientdialog.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
