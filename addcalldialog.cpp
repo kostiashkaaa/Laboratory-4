@@ -1,4 +1,3 @@
-// addcalldialog.cpp
 #include "addcalldialog.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -23,7 +22,6 @@ void AddCallDialog::setupUI() {
     QFormLayout *formLayout = new QFormLayout();
 
     callerComboBox = new QComboBox(this);
-    // ЗАЩИТА: Запрещаем ручной ввод, разрешаем только выбор из списка
     callerComboBox->setEditable(false);
 
     const auto& clients = dataManager->getClients();
