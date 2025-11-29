@@ -11,7 +11,6 @@ public:
     Client();
     Client(const std::string& name, const std::string& phoneNumber, double balance);
 
-    // ДОБАВЬТЕ ЭТИ МЕТОДЫ:
     double getBalance() const;
     void setBalance(double balance);
     void addBalance(double amount);
