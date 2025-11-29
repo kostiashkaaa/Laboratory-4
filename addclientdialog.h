@@ -1,6 +1,3 @@
-// addclientdialog.h
-// Диалоговое окно для добавления/редактирования клиента
-
 #ifndef ADDCLIENTDIALOG_H
 #define ADDCLIENTDIALOG_H
 
@@ -34,4 +31,4 @@ private:
     void validateAndAccept();
 };
 
-#endif // ADDCLIENTDIALOG_H
+#endif
